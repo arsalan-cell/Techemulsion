@@ -18,12 +18,12 @@ const footerItems: FooterItems = [
     ],
   },
   {
-    title: 'Product',
+    title: 'Software',
     items: [
       { title: 'Features', href: '/features' },
-      { title: 'Something', href: '/something' },
-      { title: 'Something else', href: '/something-else' },
-      { title: 'And something else', href: '/and-something-else' },
+      { title: 'Coming Soon', href: '/something' },
+      { title: 'Coming Soon', href: '/something-else' },
+      { title: 'Coming Soon', href: '/and-something-else' },
     ],
   },
   {
@@ -31,17 +31,17 @@ const footerItems: FooterItems = [
     items: [
       { title: 'Blog', href: '/blog' },
       { title: 'Contact', href: '/contact' },
-      { title: 'FAQ', href: '/faq' },
-      { title: 'Help Center', href: '/help-center' },
+      { title: 'FAQs', href: '/pricing' },
+      { title: 'Help Center', href: '/contact' },
     ],
   },
   {
     title: 'Something',
     items: [
       { title: 'Features2', href: '/features2' },
-      { title: 'Something2', href: '/something2' },
-      { title: 'Something else2', href: '/something-else2' },
-      { title: 'And something else2', href: '/and-something-else2' },
+      { title: 'Coming Soon', href: '/something2' },
+      { title: 'Coming Soon', href: '/something-else2' },
+      { title: 'Coming Soon', href: '/and-something-else2' },
     ],
   },
 ];
@@ -63,13 +63,13 @@ export default function Footer() {
               </a>
             </NextLink>
 
-            <NextLink href="https://www.facebook.com/my-saas-startup" passHref>
+            <NextLink href="https://www.facebook.com/emulsiontech/?paipv=0&eav=AfbqjW5eAcaVWJzLt7L0N2qlOBy1hZREwJN1QLYsVlQaSfOD0Uwiwwehma7XWSQHnzw&_rdr" passHref>
               <a>
                 <FacebookIcon size={50} round={true} />
               </a>
             </NextLink>
 
-            <NextLink href="https://www.linkedin.com/my-saas-startup" passHref>
+            <NextLink href="https://www.linkedin.com/company/tech-emulsion/?originalSubdomain=pk" passHref>
               <a>
                 <LinkedinIcon size={50} round={true} />
               </a>

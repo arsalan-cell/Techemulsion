@@ -16,7 +16,19 @@ export default function InformationSection() {
       <p>
       <span>Phone:</span> +66 94 706 0139
       </p>
+
+
+
+<h3> HR Info</h3>
+<p>
+     <span>Email:</span> info@techemulsion.com
+      </p>
+      <p>
+      <span>Phone:</span> +66 94 706 0139
+      </p>
     </Wrapper>
+
+    
   );
 }
 
@@ -28,6 +40,7 @@ const Wrapper = styled.div`
   h3 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
+    margin-top:2rem;
   }
 
   p {

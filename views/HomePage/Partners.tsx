@@ -28,6 +28,7 @@ const PARTNER_LOGOS = [
 export default function Partners() {
   return (
     <PartnersWrapper>
+      <p>.</p>
       <Title>Clients work with</Title>
       <Swiper
         modules={[Autoplay]}
@@ -57,6 +58,8 @@ function normalizePartnerLogoName(logo: string) {
   return logo.replace('.svg', '');
 }
 
+
+
 const Title = styled.h3`
   font-size: 1.3rem;
   letter-spacing: 0.02em;
@@ -67,8 +70,9 @@ const Title = styled.h3`
   opacity: 0.8;
 
   ${media('<=desktop')} {
-    line-height: 1.5;
+    line-height:1.5 ;
   }
+
 `;
 
 const PartnersWrapper = styled(Container)`

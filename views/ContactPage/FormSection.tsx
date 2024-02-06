@@ -3,12 +3,14 @@ import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import Button from 'components/Button';
 import Input from 'components/Input';
-import { media } from 'utils/media';
-import MailSentState from '../../components/MailSentState';
+ import { media } from 'utils/media';
+ {/*import MailSentState from '../../components/MailSentState';
 import Uploadfile from 'components/Uploadfile';
 
 interface EmailPayload {
   name: string;
+  lastname: string;
+  phoneno: string;
   email: string;
   description: string;
 }
@@ -48,54 +50,131 @@ export default function FormSection() {
     return <MailSentState />;
   }
 
+*/}
+
+export default function FormSection() {
+   const [firstname, setFirstName] = useState('');
+   const [email, setEmail] = useState('');
+   const [description, setDescription] = useState('');
+   const [image, setImage] = useState(null);
+   const [submitted, setSubmitted] = useState(false);
+
+   function fileToBase64(File: File) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+  
+      reader.onload = () => {
+        if(reader.result){
+          console.log(reader.result)
+        resolve(reader.result); // Extract base64 data from Data URL
+        } 
+      };
+  
+      reader.onerror = () => {
+        reject(new Error('Unable to read file'));
+      };
+  
+      reader.readAsDataURL(File);
+    });
+  }
+  console.log(image)
+   const handleSubmit = async(e: any) => {
+    e.preventDefault()
+    console.log('Sending')
+    
+    const file =await fileToBase64(image)
+    let data = {
+     firstname,
+     email,
+     description,
+     fileName:image.name ,
+     fileType:image.type,
+     encoding:'base64',
+     file,
+    }
+
+    fetch('/api/contact',{
+      method: 'POST',
+      headers:{
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then ((res)=>{
+      console.log('Response received')
+      
+    
+      if(res.status === 200){
+        console.log('Response succeeded')
+       
+        
+        setSubmitted(true)
+        setFirstName('')
+        setEmail('')
+        setDescription('')
+        setImage('')
+        
+
+      }
+    })
+   }
+
   return (
     <Wrapper>
-      <h1 >Wanna Work with us</h1>
-      <h1>Attach your CV</h1>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        {hasErrored && <ErrorMessage>Couldn&apos;t send email. Please try again.</ErrorMessage>}
+      
+      <h1>Submit your CV here</h1>
+      <Form>
+    
+        
         <InputGroup>
           <InputStack>
-            {errors.name && <ErrorMessage>Name is required</ErrorMessage>}
-            <Input placeholder="Your Name" id="name" disabled={isDisabled} {...register('name', { required: true })} />
+         {/*   {errors.name && <ErrorMessage>Name is required</ErrorMessage>} */}
+            <Input placeholder="First Name" name="firstname" onChange={(e)=>{setFirstName(e.target.value)}}  />
           </InputStack>
           <InputStack>
-            {errors.email && <ErrorMessage>Email is required</ErrorMessage>}
-            <Input placeholder="Your Email" id="email" disabled={isDisabled} {...register('email', { required: true })} />
+        {/*    {errors.email && <ErrorMessage>Last Name is required</ErrorMessage>} */}
+           
+            <Input placeholder=" Email" name="email" onChange={(e)=>{setEmail(e.target.value)}} />
           </InputStack>
         </InputGroup>
+       
         <InputStack>
-          {errors.description && <ErrorMessage>Description is required</ErrorMessage>}
+      {/*    {errors.description && <ErrorMessage>Description is required</ErrorMessage>} */}
           <Textarea
             as="textarea"
             placeholder="Enter Your Message..."
-            id="description"
-            disabled={isDisabled}
-            {...register('description', { required: true })}
+            name="description"
+            onChange={(e)=>{setDescription(e.target.value)}}
+       
           />
-          <Uploadfile/>
+          <InputStack>
+          
+          <Input type="file" required  name="image" onChange={(e)=>{setImage(e.target.files[1])}}/>
+          </InputStack>
+      {/*  <Uploadfile/>*/}
             
          
         </InputStack>
-        <Button as="button" type="submit" disabled={isSubmitDisabled}>
+        <Button as="button" type="submit" onClick={(e)=>{handleSubmit(e)}} >
           Submit
         </Button>
       </Form>
+     
     </Wrapper>
   );
-}
-
+  
+  }
 const Wrapper = styled.div`
   flex: 2;
-  
+  text-align: center;
+  margin:10px;
+ 
 `;
-const h1 = styled.h1`
-align-items: center;
-`
 
 const Form = styled.form`
   & > * {
     margin-bottom: 2rem;
+    margin-top: 15px;
   }
 `;
 
@@ -110,7 +189,7 @@ const InputGroup = styled.div`
   & > * {
     flex: 1;
   }
-
+ 
   ${media('<=tablet')} {
     flex-direction: column;
     & > *:first-child {
@@ -123,6 +202,7 @@ const InputGroup = styled.div`
 const InputStack = styled.div`
   display: flex;
   flex-direction: column;
+  border:2px solid #185651;
 
   & > *:not(:first-child) {
     margin-top: 0.5rem;

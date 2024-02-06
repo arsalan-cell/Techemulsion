@@ -174,6 +174,7 @@ const NavItemWrapper = styled.li<Partial<SingleNavItem>>`
 const NavbarContainer = styled.div<NavbarContainerProps>`
   display: flex;
   position: sticky;
+
   top: 0;
   padding: 1.5rem 0;
   width: 100%;

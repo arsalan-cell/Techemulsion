@@ -21,11 +21,11 @@ export default function WaveCta() {
       </svg>
       <CtaWrapper>
         <Container>
-          <Title>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus delectus?</Title>
+          <Title>TechEmulsion is an IT services and consulting company that builds, designs, and offers top IT services to businesses of all sizes</Title>
           <CustomButtonGroup>
-            <Button onClick={() => setIsModalOpened(true)}>
-              Subscribe to the newsletter <span>&rarr;</span>
-            </Button>
+          <Button href="/contact" >
+           Share your CV <span>&rarr;</span>
+         </Button>
             <NextLink href="/features" passHref>
               <OutlinedButton transparent>
                 Features <span>&rarr;</span>
@@ -51,6 +51,7 @@ const CtaWrapper = styled.div`
 const Title = styled(SectionTitle)`
   color: rgb(var(--textSecondary));
   margin-bottom: 4rem;
+  textsize:10px;
 `;
 
 const OutlinedButton = styled(Button)`

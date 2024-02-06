@@ -23,7 +23,7 @@ export default function Hero() {
         <Heading>Imagineering Digital Success for your Business</Heading>
         <Description>
         
-        Tech Emulsion provides a tailored selection of outsourcing methods that can be adjusted to your present 
+         Tech Emulsion provides a tailored selection of outsourcing methods that can be adjusted to your present 
         requirements and expanded as your business expands. Regardless of whether you’re a newcomer to IT outsourcing or
          someone skilled in overseeing extensive software development groups.
         </Description>
@@ -39,10 +39,10 @@ export default function Hero() {
             </Button>
           </NextLink>
   </CustomButtonGroup>
-      </Contents>
-      <ImageContainer>
+     </Contents>
+      {/*<ImageContainer>
         <HeroIllustration />
-      </ImageContainer>
+  </ImageContainer>*/}
       
     </HeroWrapper>
     
@@ -62,6 +62,10 @@ const HeroWrapper = styled.div`
     padding-top: 1rem;
     flex-direction: column;
     align-items: center;
+  }
+
+  ${media('=largeDesktop')} {
+    padding-bottom: 20rem;
   }
 `;
 
