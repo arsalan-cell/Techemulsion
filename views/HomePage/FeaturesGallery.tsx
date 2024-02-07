@@ -10,29 +10,30 @@ import { media } from 'utils/media';
 
 const TABS = [
   {
-    title: '123 relevant media contacts - multiline title',
+    title: 'IT Consulting',
     description:
-      '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
+      '<p>Attain your organizational objectives more swiftly through on-demand guidance from the Tech Emulsion team. Obtain a clear roadmap and strategic advice on the most effective approach to achieve your desired future state.</p>',
     imageUrl: '/demo-illustration-3.png',
     baseColor: '249,82,120',
     secondColor: '221,9,57',
   },
   {
-    title: 'Another amazing feature',
+    title: 'Project Managment',
     description:
-      '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
+      '<p>Harness the technical know-how, operational proficiency, and well-honed software delivery approach of Tech Emulsion to collaboratively accelerate the development of your next software product.</p>',
     imageUrl: '/demo-illustration-4.png',
     baseColor: '57,148,224',
     secondColor: '99,172,232',
   },
   {
-    title: 'And yet... another truly fascinating feature',
+    title: 'Managed Team',
     description:
-      '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
+      '<p>Boost your development velocity by utilizing a remote engineering group that’s tailored to your specifications, expertly overseen to ensure optimal delivery speed, and adjusted according to your scaling demands.</p>',
     imageUrl: '/demo-illustration-5.png',
     baseColor: '88,193,132',
     secondColor: '124,207,158',
   },
+ 
 ];
 
 export default function FeaturesGallery() {
@@ -76,8 +77,8 @@ export default function FeaturesGallery() {
   return (
     <FeaturesGalleryWrapper>
       <Content>
-        <OverTitle>features</OverTitle>
-        <SectionTitle>What are you signing in for?</SectionTitle>
+      
+        <SectionTitle>Benefits Of Partnering With Us</SectionTitle>
       </Content>
       <GalleryWrapper>
         <TabsContainer>{tabsMarkup}</TabsContainer>

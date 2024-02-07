@@ -56,10 +56,13 @@ export default function FormSection() {
    const [firstname, setFirstName] = useState('');
    const [email, setEmail] = useState('');
    const [description, setDescription] = useState('');
-   const [image, setImage] = useState(null);
+  // const [image, setImage] = useState(null);
+   const [image, setImage] = useState<File | null>(null);
+   
+
    const [submitted, setSubmitted] = useState(false);
 
-   function fileToBase64(File: File) {
+   function fileToBase64(File: any) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
   
@@ -81,14 +84,16 @@ export default function FormSection() {
    const handleSubmit = async(e: any) => {
     e.preventDefault()
     console.log('Sending')
+
     
-    const file =await fileToBase64(image)
+    const file = await fileToBase64(image)
+  
     let data = {
      firstname,
      email,
-     description,
-     fileName:image.name ,
-     fileType:image.type,
+     description,   
+     fileName:image ? image.name : '',
+     fileType:image ? image.type : '',
      encoding:'base64',
      file,
     }
@@ -112,9 +117,10 @@ export default function FormSection() {
         setFirstName('')
         setEmail('')
         setDescription('')
-        setImage('')
-        
+            
+        setImage(null);
 
+        
       }
     })
    }
@@ -149,7 +155,9 @@ export default function FormSection() {
           />
           <InputStack>
           
-          <Input type="file" required  name="image" onChange={(e)=>{setImage(e.target.files[1])}}/>
+          {/*<Input type="file" required  name="image" onChange={(e)=>{setImage(e.target.files[0])}}/>*/}
+          <Input type="file" required name="image" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setImage(e.target.files ? e.target.files[0] : null)}} />
+
           </InputStack>
       {/*  <Uploadfile/>*/}
             

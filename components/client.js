@@ -1,4 +1,4 @@
-import nodemiler from 'nodemailer';
+{/*import nodemiler from 'nodemailer';
 
 const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
 const adminEmailFull = process.env.NEXT_PUBLIC_ADMIN_EMAIL_FULL;
@@ -17,3 +17,4 @@ export const mailOptions = {
 from: adminEmailFull,
 to: adminEmailFull,
 };
+*/}
